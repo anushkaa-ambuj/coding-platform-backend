@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+asyncpg  # or use sqlite with aiosqlite
+pydantic
+python-jose
+passlib[bcrypt]
+motor         # MongoDB async driver
+httpx         # For Judge0
+python-dotenv
+jwt
