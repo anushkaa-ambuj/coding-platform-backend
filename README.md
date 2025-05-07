@@ -78,8 +78,7 @@ pip install -r requirements.txt
 ### Configure Environment Variables
 Create a .env file in the root directory with the following content:
 
-ini
-Copy code
+```ini
 MYSQL_URI=mysql://user:pass@localhost/db
 MONGO_URI=mongodb://localhost:27017/
 AWS_ACCESS_KEY=your_aws_access_key
@@ -89,14 +88,17 @@ JUDGE0_URL=https://judge0.p.rapidapi.com/
 JUDGE0_API_KEY=your_api_key
 SECRET_KEY=your_jwt_secret
 REDIS_URL=redis://localhost:6379/0
-4️⃣ Run MySQL and MongoDB
+```
+
+### 4️⃣ Run MySQL and MongoDB
 Ensure MySQL and MongoDB are running locally. You can use Docker or native installations.
 
-5️⃣ Run the FastAPI Application
-bash
-Copy code
+### 5️⃣ Run the FastAPI Application
+```bash
 uvicorn app.main:app --reload
-6️⃣ 
+```
+
+### 6️⃣ 
 
 📦 Docker Usage (Optional)
 To containerize and run the application using Docker:
@@ -107,7 +109,7 @@ docker build -t coding-backend .
 docker run -p 8000:8000 coding-backend
 ```
 
-📊 Future Improvements
+## 📊 Future Improvements
 🏆 Leaderboard and scoring system
 
 🧠 Code similarity and plagiarism detection
