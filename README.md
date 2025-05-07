@@ -12,16 +12,15 @@ This project is a scalable backend system for a coding assessment platform, desi
 | Auth           | JWT (OAuth2 Password Flow)          |
 | Relational DB  | MySQL (Users, Problems, TestCases)  |
 | NoSQL DB       | MongoDB (Submissions & Results)     |
-| Task Queue     | Kafka (async evaluation)   |
+| Task Queue     | Kafka (async evaluation)            |
 | Code Execution | Judge0 API                          |
 | File Storage   | AWS S3 (Hidden Test Cases)          |
 | Deployment     | Docker (Production-ready)           |
 
 ---
 
-## 🗂️ Project Structure
-
-
+## 🗂️ Project Architecture Diagram
+![](images/sys_diagram.jpeg)
 
 ## 🔐 Authentication
 
