@@ -1,6 +1,6 @@
 # Online Coding Assessment Platform - Backend
 
-This project is a scalable backend system for a coding assessment platform, designed using **FastAPI**, **MySQL**, **MongoDB**, **Celery**, **Redis**, **AWS S3**, and **Judge0**. It supports code execution, candidate evaluation, problem creation, and admin analytics.
+This project is a scalable backend system for a coding assessment platform, designed using **FastAPI**, **MySQL**, **MongoDB**, **Kafka**, **AWS S3**, and **Judge0**. It supports code execution, candidate evaluation, problem creation, and admin analytics.
 
 ---
 
@@ -12,7 +12,7 @@ This project is a scalable backend system for a coding assessment platform, desi
 | Auth           | JWT (OAuth2 Password Flow)          |
 | Relational DB  | MySQL (Users, Problems, TestCases)  |
 | NoSQL DB       | MongoDB (Submissions & Results)     |
-| Task Queue     | Celery + Redis (async evaluation)   |
+| Task Queue     | Kafka (async evaluation)   |
 | Code Execution | Judge0 API                          |
 | File Storage   | AWS S3 (Hidden Test Cases)          |
 | Deployment     | Docker (Production-ready)           |
@@ -49,16 +49,8 @@ JWT-based system using FastAPI's `OAuth2PasswordBearer`.
 
 
 ## 🧮 Database Schema
-
-### MySQL
-
-- **Users**  
-- **Challenges**  
-- **TestCases** (hidden cases stored in S3)  
-
-### MongoDB
-
-- **Submissions**
+![](images/sql_model.png)
+![](images/mongo_model.png)
 
 ## 🚀 Setup Instructions
 
