@@ -154,9 +154,9 @@ Run the consumer script as a separate process or service.
 
 
 ## 🧪 Test Case Management
-✅ Public test cases are stored in MySQL and visible to users.
+- ✅ Public test cases are stored in MySQL and visible to users.
 
-🔒 Hidden test cases are uploaded to AWS S3, and their S3 keys are referenced in the database.
+- 🔒 Hidden test cases are uploaded to AWS S3, and their S3 keys are referenced in the database.
 
 
 
@@ -170,15 +170,15 @@ docker run -p 8000:8000 coding-backend
 ```
 
 ## 📊 Future Improvements
-🏆 Leaderboard and scoring system
+- 🏆 Leaderboard and scoring system
 
-🧠 Code similarity and plagiarism detection
+- 🧠 Code similarity and plagiarism detection
 
-🚫 Rate limiting and abuse protection
+- 🚫 Rate limiting and abuse protection
 
-🎛️ Admin dashboard (React)
+- 🎛️ Admin dashboard (React)
 
-🌍 Multi-language support
+- 🌍 Multi-language support
 
 
 
