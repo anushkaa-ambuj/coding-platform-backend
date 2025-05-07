@@ -1,4 +1,4 @@
-# 🧠 Online Coding Assessment Platform - Backend
+# Online Coding Assessment Platform - Backend
 
 This project is a scalable backend system for a coding assessment platform, designed using **FastAPI**, **MySQL**, **MongoDB**, **Celery**, **Redis**, **AWS S3**, and **Judge0**. It supports code execution, candidate evaluation, problem creation, and admin analytics.
 
@@ -94,13 +94,73 @@ REDIS_URL=redis://localhost:6379/0
 Ensure MySQL and MongoDB are running locally. You can use Docker or native installations.
 
 ### 5️⃣ Run the FastAPI Application
+Start the FastAPI application:
+
 ```bash
-uvicorn app.main:app --reload
+fastapi dev app/main.py
 ```
 
-### 6️⃣ 
+### 6️⃣ Kafka Producer (Publish Tasks)
+Kafka producers will push tasks into a Kafka topic, which will be consumed by Kafka consumers to process background tasks. You can implement Kafka producer logic inside your FastAPI routes or services.
 
-📦 Docker Usage (Optional)
+Example producer (for code execution tasks):
+
+```python
+from kafka import KafkaProducer
+import json
+import os
+
+KAFKA_BROKER_URL = os.getenv("KAFKA_BROKER_URL")
+KAFKA_TOPIC = os.getenv("KAFKA_TOPIC")
+
+producer = KafkaProducer(
+    bootstrap_servers=[KAFKA_BROKER_URL],
+    value_serializer=lambda v: json.dumps(v).encode('utf-8')
+)
+
+def publish_code_execution_task(task_data):
+    producer.send(KAFKA_TOPIC, task_data)
+    producer.flush()
+```
+
+### 7️⃣ Kafka Consumer (Process Tasks)
+Kafka consumers will listen for tasks and process them asynchronously. This could be handled by a separate process running in the background.
+
+Example consumer (for code execution processing):
+
+```python
+from kafka import KafkaConsumer
+import json
+import os
+
+KAFKA_BROKER_URL = os.getenv("KAFKA_BROKER_URL")
+KAFKA_TOPIC = os.getenv("KAFKA_TOPIC")
+
+consumer = KafkaConsumer(
+    KAFKA_TOPIC,
+    bootstrap_servers=[KAFKA_BROKER_URL],
+    value_deserializer=lambda x: json.loads(x.decode('utf-8'))
+)
+
+def process_code_execution_task(task_data):
+    # Your code execution logic here
+    pass
+
+for message in consumer:
+    task_data = message.value
+    process_code_execution_task(task_data)
+Run the consumer script as a separate process or service.
+```
+
+
+## 🧪 Test Case Management
+✅ Public test cases are stored in MySQL and visible to users.
+
+🔒 Hidden test cases are uploaded to AWS S3, and their S3 keys are referenced in the database.
+
+
+
+## 📦 Docker Usage (Optional)
 To containerize and run the application using Docker:
 
 ```bash
