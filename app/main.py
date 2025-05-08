@@ -9,11 +9,6 @@ app.include_router(candidate.router, prefix="/candidate", tags=["Candidate"])
 app.include_router(submissions.router, prefix="/submissions", tags=["Submissions"])
 
 @app.get("/")
-def read_root():
-    return {"message": "Welcome to the Online Coding Platform API"}
-"""
-
-@app.get("/")
 async def root():
-    return {"message": "Hello World"}
-"""
+    return {"message": "Welcome to the Online Coding Platform API"}
+
